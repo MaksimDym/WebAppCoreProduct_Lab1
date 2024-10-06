@@ -1,9 +1,11 @@
-﻿namespace WebAppCoreProduct1.Pages.Service
+﻿using WebAppCoreProduct1.Models;
+
+namespace WebAppCoreProduct1.Pages.Service
 {
 	public interface IProductService // создание интерфейса
 	{
 
-		string GetData();
+		void AddProduct(Product product);
 
 
 
@@ -12,9 +14,9 @@
 	public class ProductService : IProductService
 	{
 
-		public string GetData()
+		public void AddProduct(Product product) 
 		{
-			return "Метод вызван";
+		 
 		}
 
 	}

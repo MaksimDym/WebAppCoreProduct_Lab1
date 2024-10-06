@@ -12,12 +12,22 @@ namespace WebAppCoreProduct1.Pages
     {
 		public string? MessageRezult { get; private set; }
 
-		public Product Product { get; set; }
-		public void OnGet()
-        {
-			MessageRezult = "Для товара можно определить скидку";
+		public Product Product { get; set; } = new Product();
+
+		public decimal Total { get; set; } 
+
+		public IProductService Get_productService()
+		{
+			return _productService;
 		}
 
+		public void OnGet(double p1)
+        {
+			
+
+		}
+
+		
 		public void OnPost(string name, decimal? price)
 		{
 			Product = new Product();
@@ -51,8 +61,11 @@ namespace WebAppCoreProduct1.Pages
 			MessageRezult = $"{name} с ценой {price} и количеством {kol} получится на сумму {total}  рублей";
 			
 			Product.Price = price;
-			Product.Name = name;     
-		    
+			Product.Name = name;
+			_productService.AddProduct(Product);
+			MessageRezult += "   Продукт успешно добавлен через службу productService.";
+
+
 		}
 
 		private readonly IProductService _productService;
@@ -62,6 +75,12 @@ namespace WebAppCoreProduct1.Pages
 			_productService = productService;
 
 		}
-	
+
+		
+
+		
+
+
+
 	}
 }
