@@ -48,7 +48,7 @@ namespace WebAppCoreProduct1.Pages
 		{
 			Product = new Product();
 			var total = price *(decimal?)kol ;
-			MessageRezult = $"{name} с ценой {price} и количеством {kol} получится на сумму {total}";
+			MessageRezult = $"{name} с ценой {price} и количеством {kol} получится на сумму {total}  рублей";
 			
 			Product.Price = price;
 			Product.Name = name;     
@@ -60,10 +60,6 @@ namespace WebAppCoreProduct1.Pages
 		public ProductModel(IProductService productService)
 		{
 			_productService = productService;
-
-
-
-
 
 		}
 	
